@@ -110,6 +110,8 @@ WIN_GetDisplayMode(_THIS, LPCTSTR deviceName, DWORD index, SDL_DisplayMode * mod
         char bmi_data[sizeof(BITMAPINFOHEADER) + 256 * sizeof(RGBQUAD)];
         LPBITMAPINFO bmi;
         HBITMAP hbm;
+
+#if 0
         int logical_width = GetDeviceCaps( hdc, HORZRES );
         int logical_height = GetDeviceCaps( hdc, VERTRES );
 
@@ -117,7 +119,8 @@ WIN_GetDisplayMode(_THIS, LPCTSTR deviceName, DWORD index, SDL_DisplayMode * mod
         data->ScaleY = (float)logical_height / devmode.dmPelsHeight;
         mode->w = logical_width;
         mode->h = logical_height;
-
+#endif
+        
         // WIN_GetMonitorDPI needs mode->w and mode->h
         // so only call after those are set.
         if (vid_data->GetDpiForMonitor) {
