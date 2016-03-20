@@ -573,7 +573,7 @@ SDL_DINPUT_JoystickOpen(SDL_Joystick * joystick, JoyStick_DeviceData *joystickde
     result =
         IDirectInputDevice8_SetCooperativeLevel(joystick->hwdata->
         InputDevice, SDL_HelperWindow,
-        DISCL_EXCLUSIVE |
+        DISCL_NONEXCLUSIVE |
         DISCL_BACKGROUND);
     if (FAILED(result)) {
         return SetDIerror("IDirectInputDevice8::SetCooperativeLevel", result);
